@@ -9,9 +9,11 @@ theme: mkdocs # readthedocs
 
 nav:
   - Home: index.md
+  - Report an Issue: report_an_issue.md
   - Go2:
     - Overview: go2/index.md
     - Getting Started: go2/getting_started.md
+    - ROS2 Control: go2/ros_control.md
   - TurtleBot3:
     - Overview: turtlebot3/index.md
     - Getting Started: turtlebot3/getting_started.md
