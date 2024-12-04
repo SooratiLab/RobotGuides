@@ -1,7 +1,5 @@
 # B32RobotGuides
 
-This is built using [mkdocs](https://www.mkdocs.org).
-
 This repository contains the documentation for the robots we have in the lab.
 
 These guides were written by Toby Godfrey (t.godfrey \~at\~ soton.ac.uk). If there are errors or omissions, please inform me as soon as possible.

@@ -1,0 +1,6 @@
+site_name: B32 Robot Guides
+theme: mkdocs # readthedocs
+nav:
+  - Home: index.md
+  - Go2: Go2/index.md
+  - TurtleBot3: TurtleBot3/index.md
