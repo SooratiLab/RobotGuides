@@ -1,6 +1,17 @@
 site_name: B32 Robot Guides
+site_url: https://sooratilab.github.io/B32RobotGuides/
+site_description: Guides for using the robots in B32.
+site_author: SooratiLab
+
+repo_url: https://github.com/sooratilab/b32robotguides
+
 theme: mkdocs # readthedocs
+
 nav:
   - Home: index.md
-  - Go2: Go2/index.md
-  - TurtleBot3: TurtleBot3/index.md
+  - Go2:
+    - Overview: go2/index.md
+    - Getting Started: go2/getting_started.md
+  - TurtleBot3:
+    - Overview: turtlebot3/index.md
+    - Getting Started: turtlebot3/getting_started.md
