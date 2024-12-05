@@ -1,9 +1,9 @@
-site_name: B32 Robot Guides
-site_url: https://sooratilab.github.io/B32RobotGuides/
+site_name: Robot Guides
+site_url: https://sooratilab.github.io/RobotGuides/
 site_description: Guides for using the robots in B32.
 site_author: SooratiLab
 
-repo_url: https://github.com/sooratilab/b32robotguides
+repo_url: https://github.com/sooratilab/robotguides
 
 theme: mkdocs # readthedocs
 
