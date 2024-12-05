@@ -1,4 +1,4 @@
-# B32RobotGuides
+# Robot Guides
 
 This repository contains the documentation for the robots we have in the lab.
 
