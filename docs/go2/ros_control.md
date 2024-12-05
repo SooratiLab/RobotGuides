@@ -73,8 +73,60 @@ We do also have a [Livox MID-360](https://www.livoxtech.com/mid-360) LiDAR which
 !!!note "Accessing the SDK"
     The typical user should not have to interact with the SDK. This section is mainly included for completeness.
 
-Unitree support for ROS2 is poor and so we do not use the default SDK.
+Unitree support for ROS2 is poor and so we do not use the default SDK. The SDK we use is [here](https://github.com/tgodfrey0/go2_robot) which is a fork of [this](https://github.com/IntelligentRoboticsLabs/go2_robot).
 
-The SDK we use is [here](https://github.com/tgodfrey0/go2_robot) which is a fork of [this](https://github.com/IntelligentRoboticsLabs/go2_robot).
+### `systemd` Service
 
-This SDK runs on the Jetson and should start automatically.
+The SDK runs as a `systemd` service on the Jetson and should start automatically at boot. To check this run
+
+```bash
+systemctl status go2-sdk.service
+```
+
+If you want to run the SDK manually (e.g. for debugging), make sure to stop the service.
+
+```bash
+sudo systemctl stop go2-sdk.service
+```
+
+### Building from Source
+
+In order to build from source, ensure that the `ros2_ws` directory has not been sourced. You will likely need to comment out the line `source ~/ros2_ws/install/setup.bash` in the file `~/.ros2_env`. Restart the shell then proceed to the next steps.
+
+As the package already exists, we must remove it. It is good practice to clean the workspace too.
+
+```bash
+cd ~/ros2_ws
+rm -r log/ install/ build/      # Clean the workspace
+rm -r src/go2_robot             # Remove the SDK package
+```
+
+The `src` directory will also have a package called `HesaiLidar_ROS_2.0`. This package is required by the SDK even though we do not have this LiDAR. There are plans to remove this requirement in the future but for now leave the package untouched.
+
+We can then gather our sources for the SDK.
+
+```bash
+cd ~/ros2_ws/src
+git clone https://github.com/tgodfrey0/go2_robot.git        # Clone the SDK
+RUN git clone https://github.com/nlohmann/json.git          # Clone a required library
+mv json/include/nlohmann go2_robot/go2_driver/include/      # Move the library to the ROS package
+rm -rf json                                                 # Remove the library repository
+```
+
+Now we can build it.
+
+```bash
+cd ~/ros2_ws
+rosdep update 
+rosdep install --from-paths src --ignore-src -r -y --rosdistro ${ROS_DISTRO} --include-eol-distros 
+colcon build --symlink-install 
+source install/setup.bash 
+```
+
+If all packages build successfully we can now use the Go2 with ROS2.
+
+To start the SDK, run
+
+```bash
+ros2 launch go2_bringup go2.launch.py
+```
