@@ -130,3 +130,5 @@ To start the SDK, run
 ```bash
 ros2 launch go2_bringup go2.launch.py
 ```
+
+Once this is working, remember to uncomment the line to source the ROS workspace in `~/.ros2_env`.
