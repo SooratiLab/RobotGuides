@@ -2,10 +2,16 @@ site_name: Robot Guides
 site_url: https://sooratilab.github.io/RobotGuides/
 site_description: Guides for using the robots in B32.
 site_author: SooratiLab
+copyright: © SooratiLab 2025
 
 repo_url: https://github.com/sooratilab/robotguides
 
 theme: mkdocs # readthedocs
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
@@ -14,6 +20,7 @@ nav:
     - Overview: go2/index.md
     - Getting Started: go2/getting_started.md
     - ROS2 Control: go2/ros_control.md
+    - Troubleshooting: go2/troubleshooting.md
   - TurtleBot3:
     - Overview: turtlebot3/index.md
     - Getting Started: turtlebot3/getting_started.md
