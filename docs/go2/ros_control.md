@@ -98,7 +98,7 @@ The options for `<MODE>` are:
 - `dance2` -- fun dance
 - `finger_heart` -- sit on its back legs and draw a heart
 
-!!!danger "Using these Modes"
+!!!warning "Using these Modes"
     These modes are more of a gimmick and unlikely to be useful for your research. It is strongly recommended, if you do want to see these actions, to use the wireless controller to do so. Instructions on how to do that are printed on the controller. If you use ROS, it is very easy to run a new action which could damage the robot.
 
 ## Go2 ROS2 SDK
