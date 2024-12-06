@@ -51,6 +51,8 @@ To use ROS over WiFi, the USB WiFi adapter has to be connected before the Go2 is
 
 ## ROS Usage
 
+### General Control
+
 If using the Go2 over Ethernet, you will have access to all topics from both the Jetson and the internal MCU. If using WiFi, you will only have access to the SDK topics (from the Jetson). The topics from the SDK should be sufficient.
 
 To move the robot, publish a [`Twist`](https://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Twist.html) message to the `/cmd_vel` topic. This allows you to specify a desired linear and angular velocity for the robot.
@@ -67,6 +69,37 @@ For low level joint information, subscribe to the `/joint_states` topic.
 There are other topics which are more niche in their uses.
 
 We do also have a [Livox MID-360](https://www.livoxtech.com/mid-360) LiDAR which is yet to be integrated with the robot.
+
+### Pre-Defined Actions
+
+The Go2 has many pre-defined actions (listed on the controller), e.g. sitting or jumping. These are accessible using ROS, simply run
+
+```bash
+ros2 service call /mode go2_interfaces/srv/Mode "mode: '<MODE>'"
+```
+
+The options for `<MODE>` are:
+
+- `damp`
+- `balance_stand`
+- `stop_move`
+- `stand_up` -- stand up if it is laying down
+- `stand_down` -- lay down on its chest (this is useful to put it in a safe state before turning it off)
+- `sit` -- sit down
+- `rise_sit`
+- `hello` -- wave
+- `stretch` -- typical dog-like stretch
+- `wallow` -- **DO NOT RUN THIS MODE,** the robot will throw itself sideways onto it's back
+- `scrape`
+- `front_flip` -- **DO NOT RUN THIS MODE**, the robot will do a front flip and may get damaged
+- `front_jump` -- jump forward
+- `front_pounce`
+- `dance1` -- fun dance
+- `dance2` -- fun dance
+- `finger_heart` -- sit on its back legs and draw a heart
+
+!!!danger "Using these Modes"
+    These modes are more of a gimmick and unlikely to be useful for your research. It is strongly recommended, if you do want to see these actions, to use the wireless controller to do so. Instructions on how to do that are printed on the controller. If you use ROS, it is very easy to run a new action which could damage the robot.
 
 ## Go2 ROS2 SDK
 
