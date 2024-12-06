@@ -5,6 +5,19 @@ The ROS2 Foxy package we use to interface with the robot can be found [here](htt
 !!!warning ""
     In this document you will see the acronym ROS. Unless specified otherwise ROS will refer to ROS2, specifically ROS2 Foxy. ROS version 1 will be written as ROS1.
 
+!!!note "TLDR"
+    Requirements:
+    
+    - `ROS_DOMAIN_ID = 0`
+    - `RMW_IMPLEMENTATION = rmw_cyclonedds_cpp`
+    - CycloneDDS version 0.10.2
+
+    If you are using WiFi, configure CycloneDDS to use the wireless interface and then connect to the Go2's hotspot with the password `hotspot123`. You should then see the SDK topics.
+
+    If you are using Ethernet, configure CycloneDDS to use the wired interface and connect to the Go2. You must have a static IPv4 of `192.168.123.222`.
+
+    The Go2 SDK automatically starts when the robot is turned on. You should now be able to interact with the robot using ROS2 by running your ROS code on your computer.
+
 ## System Layout
 
 At present, the system contains three compute units:
@@ -36,10 +49,11 @@ You must have a matching configuration to that of the Jetson:
 
 - `ROS_DOMAIN_ID = 0`
 - `RMW_IMPLEMENTATION = rmw_cyclonedds_cpp`
+- CycloneDDS version `0.10.2`
 
-To install ROS2 Foxy, follow the tutorial [here](https://docs.ros.org/en/foxy/Installation.html). If you don't want to install it, or you have an incompatible setup, we have a Docker container which *should* work out of the box. [Download the Dockerfile](https://github.com/tgodfrey0/go2_robot/tree/humble/auxiliary/Docker) and follow the instructions on ["Running with Docker"](https://github.com/tgodfrey0/go2_robot/tree/humble/auxiliary).
+To install ROS2 Foxy, follow the tutorial [here](https://docs.ros.org/en/foxy/Installation.html). If you don't want to install it, or you have an incompatible setup, we have a Docker container which *should* work out of the box. [Download the Dockerfile](https://github.com/tgodfrey0/go2_robot/tree/humble/auxiliary/Docker) and follow the instructions on [Running with Docker](https://github.com/tgodfrey0/go2_robot/tree/humble/auxiliary).
 
-The Jetson and internal MCU use CycloneDDS 0.10.2 as the [ROS2 middleware vendor](https://docs.ros.org/en/foxy/Concepts/About-Middleware-Implementations.html).
+The Jetson and internal MCU use CycloneDDS 0.10.2 as the [ROS2 middleware vendor](https://docs.ros.org/en/foxy/Concepts/About-Middleware-Implementations.html). Communication may not work if you use a different version of CycloneDDS. If you are not using the Docker container, we must install the correct version of CycloneDDS. To do so, follow the instructions on [Running without Docker](https://github.com/tgodfrey0/go2_robot/tree/humble/auxiliary).
 
 ## Connecting Over Ethernet
 
