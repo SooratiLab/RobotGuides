@@ -94,23 +94,23 @@ ros2 service call /mode go2_interfaces/srv/Mode "mode: '<MODE>'"
 
 The options for `<MODE>` are:
 
-- `damp`
-- `balance_stand`
-- `stop_move`
-- `stand_up` -- stand up if it is laying down
-- `stand_down` -- lay down on its chest (this is useful to put it in a safe state before turning it off)
-- `sit` -- sit down
-- `rise_sit`
-- `hello` -- wave
-- `stretch` -- typical dog-like stretch
-- `wallow` -- **DO NOT RUN THIS MODE,** the robot will throw itself sideways onto it's back
-- `scrape`
-- `front_flip` -- **DO NOT RUN THIS MODE**, the robot will do a front flip and may get damaged
-- `front_jump` -- jump forward
-- `front_pounce`
-- `dance1` -- fun dance
-- `dance2` -- fun dance
-- `finger_heart` -- sit on its back legs and draw a heart
+- `damp` — lock all motor joints (this is high priority and can be used for emergency stops)
+- `balance_stand` — unlock all joints and move into balance stand mode, the attitude and height of the torso will always remain balanced independent of terrain
+- `stop_move` — stop any current motion
+- `stand_up` — stand up if it is laying down
+- `stand_down` — lay down on its chest (this is useful to put it in a safe state before turning it off)
+- `sit` — sit down
+- `rise_sit` — rise from being sat down
+- `hello` — wave
+- `stretch` — typical dog-like stretch
+- `wallow` — **DO NOT RUN THIS MODE,** the robot will throw itself sideways onto it's back
+- `scrape` —
+- `front_flip` — **DO NOT RUN THIS MODE**, the robot will do a front flip and may get damaged
+- `front_jump` — jump forward
+- `front_pounce` —
+- `dance1` — fun dance
+- `dance2` — fun dance
+- `finger_heart` — sit on its back legs and draw a heart
 
 !!!warning "Using these Modes"
     These modes are more of a gimmick and unlikely to be useful for your research. It is strongly recommended, if you do want to see these actions, to use the wireless controller to do so. Instructions on how to do that are printed on the controller. If you use ROS, it is very easy to run a new action which could damage the robot.
