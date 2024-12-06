@@ -27,7 +27,8 @@ Follow these steps to power off the Go2
 2. Lay the robot down by pressing `L2+A` again.
 3. Press and hold the power button until the robot turns off.
 4. Wait for the LiDAR to stop spinning.
-5. Return the robot to the box.
+5. Check the robot for any damage. **If you find damage complete the form [here](https://forms.office.com/e/gP7mZcBhfr).**
+6. Return the robot to the box.
 
 ## Control
 
