@@ -5,6 +5,7 @@ site_author: SooratiLab
 copyright: © 2025 SooratiLab
 
 repo_url: https://github.com/sooratilab/robotguides
+edit_url: blob/main/docs/
 
 theme: mkdocs # readthedocs
 
