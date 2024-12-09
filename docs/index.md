@@ -11,4 +11,4 @@ These guides were written by Toby Godfrey (t.godfrey ~at~ soton.ac.uk). If there
 - Do not store your working files on the robots; robot storage will be wiped on a regular basis.
 - Major changes to robot software or configuration should not be conducted unless it has been discussed and approved by an experienced user. If you need to discuss such a change please email Toby Godfrey (t.godfrey ~at~ soton.ac.uk).
 - If you wish to contribute a guide for a specific robot type please submit a PR on the [GitHub](https://github.com/sooratilab/robotguides/).
-- This is not a guide on ROS! The purpose of these documents is to allow users to easily utilise the robotic platforms that we have in the lab.
+- This is not a guide on ROS! The purpose of these documents is to allow users to easily utilise the robotic platforms that we have in the lab. (For help with ROS and other robotics ideas take a look [here](https://automaticaddison.com/tutorials/).)
