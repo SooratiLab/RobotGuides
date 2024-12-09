@@ -36,7 +36,7 @@ To control the Go2, you can either use the wireless controller or ROS2 Foxy.
 
 ### Wireless Controller
 
-To turn the controller, press the power button on the underside of the controller, then press and hold it for around 10-12 seconds. It should then be connected to the Go2.
+To turn on the controller, press the power button on the underside of the controller, then press and hold it for around 10-12 seconds. It should then be connected to the Go2. To turn it off, press the power button then press and hold it for around 3 seconds. The lights should then turn off.
 
 In the box, there is an additional controller designed to be clipped to a belt. Do not use this controller unless you have discussed it with an experienced user. You should not need to use this controller.
 

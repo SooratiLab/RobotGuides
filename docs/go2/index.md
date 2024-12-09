@@ -11,3 +11,4 @@ For all other information about the Go2s, please navigate to the relevant page.
 - [Getting Started](getting_started.md)
 - [ROS2 Control](ros_control.md)
 - [Troubleshooting](troubleshooting.md)
+- [Useful Resources](resources.md)

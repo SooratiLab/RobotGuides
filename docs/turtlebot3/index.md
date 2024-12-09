@@ -11,3 +11,4 @@ For all other information about the TurtleBot3s, please navigate to the relevant
 - [Getting Started](getting_started.md)
 - [ROS2 Control](ros_control.md)
 - [Troubleshooting](troubleshooting.md)
+- [Useful Resources](resources.md)
