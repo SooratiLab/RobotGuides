@@ -25,6 +25,10 @@ Follow these steps to power off the TurtleBot3
 4. Check the robot for any damage. **If you find damage and complete the form [here](https://forms.office.com/e/gP7mZcBhfr).**
 5. Return the robot to the box.
 
+## Accessing the Raspberry Pi
+
+The main compute unit on each TurtleBot3 is the Raspberry Pi 4 positioned towards the back of the robot on the second tier. This can be accessed by connecting a keyboard and a HDMI cable. The username is `ubuntu` and the password is `raspberry`.
+
 ## Control
 
 There are wireless controller for the TurtleBot3s, however they have not be set up or tested. You must use ROS to control the robots.

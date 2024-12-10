@@ -23,6 +23,7 @@ nav:
     - ROS2 Control: go2/ros_control.md
     - Troubleshooting: go2/troubleshooting.md
     - Useful Resources: go2/resources.md
+    - 3D Models: go2/3d_models.md
   - TurtleBot3:
     - Overview: turtlebot3/index.md
     - Getting Started: turtlebot3/getting_started.md
