@@ -29,6 +29,18 @@ Follow these steps to power off the TurtleBot3
 
 The main compute unit on each TurtleBot3 is the Raspberry Pi 4 positioned towards the back of the robot on the second tier. This can be accessed by connecting a keyboard and a HDMI cable. The username is `ubuntu` and the password is `raspberry`.
 
+## Connecting to WiFi
+
+The Raspberry Pi has an onboard wireless chip. The easiest way to connect to a WiFi network is with `nmtui`.
+
+Simply run
+
+```bash
+sudo nmtui
+```
+
+And click on `Activate a connection`.
+
 ## Control
 
 There are wireless controller for the TurtleBot3s, however they have not be set up or tested. You must use ROS to control the robots.
