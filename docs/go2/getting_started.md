@@ -2,6 +2,9 @@
 
 The provides a brief description of the steps needed to get the Go2 up and running with basic control.
 
+!!!warning "Take Care"
+    These robots are very expensive and it can be relatively easy to damage them. Any and all damage **must** be report [here](https://forms.office.com/e/gP7mZcBhfr).
+
 ## The Box
 
 For such an expensive robot, the box is surprisingly fragile. When opening the box, ensure that you unclip the two black latches on the front before opening, and try to rest the lid on a table or chair as laying it flat stresses the hinges. When closing, tighten the black strap significantly to avoid stressing the latches on the box.
@@ -44,7 +47,7 @@ In the box, there is an additional controller designed to be clipped to a belt. 
 
 The Go2 is configured to use ROS2 Foxy. Do not try to change the ROS version yourself. If this version does not work for you, please contact Toby Godfrey (t.godfrey ~at~ soton.ac.uk) to discuss it further.
 
-!!! warning "ROS1 Support"
+!!!warning "ROS1 Support"
     ROS1 is not supported and will not be supported. If you must use ROS1, you are advised to migrate your software to ROS2 or use the ROS1-ROS2 bridge.
 
 For detailed instructions, view the page on [controlling the Go2 with ROS2 Foxy](ros_control.md).

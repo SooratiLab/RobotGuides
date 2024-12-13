@@ -2,10 +2,10 @@
 
 The ROS2 Foxy package we use to interface with the robot can be found [here](https://github.com/tgodfrey0/go2_robot/tree/humble). This may be ported to a newer version of ROS2 in the future, but there are currently no plans for this.
 
-!!!warning ""
+!!!tip "ROS vs. ROS1 vs. ROS2"
     In this document you will see the acronym ROS. Unless specified otherwise ROS will refer to ROS2, specifically ROS2 Foxy. ROS version 1 will be written as ROS1.
 
-!!!note "TLDR"
+!!!abstract "TLDR"
     Requirements:
     
     - `ROS_DOMAIN_ID = 0`
@@ -26,7 +26,7 @@ At present, the system contains three compute units:
 - The Nvidia Jetson
 - Your PC
 
-!!!note "Internal MCU"
+!!!info "Internal MCU"
     The internal MCU is locked by Unitree and is inaccessible. Unitree have been contacted but they did not give me the password >:(.
 
 ### Nvidia Jetson
@@ -112,12 +112,12 @@ The options for `<MODE>` are:
 - `dance2` — fun dance
 - `finger_heart` — sit on its back legs and draw a heart
 
-!!!warning "Using these Modes"
+!!!danger "Using these Modes"
     These modes are more of a gimmick and unlikely to be useful for your research. It is strongly recommended, if you do want to see these actions, to use the wireless controller to do so. Instructions on how to do that are printed on the controller. If you use ROS, it is very easy to run a new action which could damage the robot.
 
 ## Go2 ROS2 SDK
 
-!!!note "Accessing the SDK"
+!!!warning "Accessing the SDK"
     The typical user should not have to interact with the SDK. This section is mainly included for completeness.
 
 Unitree support for ROS2 is poor and so we do not use the default SDK. The SDK we use is [here](https://github.com/tgodfrey0/go2_robot) which is a fork of [this](https://github.com/IntelligentRoboticsLabs/go2_robot).

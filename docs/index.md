@@ -2,12 +2,15 @@
 
 This repository contains the documentation for the robots we have in the lab.
 
-!!!note ""
+!!!question "Are you lost?"
     For the main lab website, please click [here](https://sooratilab.com).
 
 These guides were written by Toby Godfrey (t.godfrey ~at~ soton.ac.uk). If there are errors or omissions, please inform me as soon as possible.
 
 **If you have encountered an issue with a robot, please inform us immediately by completing this form <https://forms.office.com/e/gP7mZcBhfr>. Please complete the form even if the robot has recovered.**
+
+!!!warning "Non-Linux Systems"
+    This guide was written for Linux systems. If you are using a different OS, some of this information may not work for you (mainly the code segments). If you overcome such issues, please submit a PR on [GitHub](https://github.com/sooratilab/robotguides/) to make these guides more comprehensive.
 
 ## General Information
 

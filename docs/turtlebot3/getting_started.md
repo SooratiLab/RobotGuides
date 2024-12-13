@@ -2,8 +2,8 @@
 
 The TurtleBot3 robots are constructed with three parallel plates, the bottom plate has the battery, the middle plate houses a Raspberry Pi 4 and an OpenCR control board, and the top plate contains the LiDAR and a Raspberry Pi Camera v2.
 
-!!!note ""
-    Whilst these robots may look cheap, they are not. Please take care.
+!!!warning "Take Care"
+    Whilst these robots may look cheap, they are not. They are relatively robust, but not indestructible. Any and all damage **must** be report [here](https://forms.office.com/e/gP7mZcBhfr).
 
 ## Powering Up
 
