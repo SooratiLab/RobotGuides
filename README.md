@@ -9,3 +9,10 @@ This repository contains the documentation for the robots we have in the lab.
 <https://sooratilab.github.io/RobotGuides>
 
 These guides were written by Toby Godfrey (t.godfrey \~at\~ soton.ac.uk). If there are errors or omissions, please inform me as soon as possible.
+
+## TODO
+
+- [ ] RealSense D435i Camera
+- [ ] Livox MID-360
+- [ ] Linux disclaimer
+- [ ] Move page on running with Docker/Env setup into docs page
