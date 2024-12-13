@@ -14,5 +14,4 @@ These guides were written by Toby Godfrey (t.godfrey \~at\~ soton.ac.uk). If the
 
 - [ ] RealSense D435i Camera
 - [ ] Livox MID-360
-- [ ] Linux disclaimer
-- [ ] Move page on running with Docker/Env setup into docs page
+- [x] Linux disclaimer

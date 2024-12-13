@@ -3,7 +3,7 @@
 This repository contains the documentation for the robots we have in the lab.
 
 !!!question "Are you lost?"
-    For the main lab website, please click [here](https://sooratilab.com).
+    This website outlines the operating proceedures for the robots we have in the lab at the [University of Southampton](https://www.southampton.ac.uk/about/faculties-schools-departments/school-of-electronics-and-computer-sciencek). (This documentation may be useful to others.) For the main lab website, please click [here](https://sooratilab.com).
 
 These guides were written by Toby Godfrey (t.godfrey ~at~ soton.ac.uk). If there are errors or omissions, please inform me as soon as possible.
 

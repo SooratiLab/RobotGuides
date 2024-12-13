@@ -7,7 +7,7 @@ The ROS2 Foxy package we use to interface with the robot can be found [here](htt
 
 !!!abstract "TLDR"
     Requirements:
-    
+
     - `ROS_DOMAIN_ID = 0`
     - `RMW_IMPLEMENTATION = rmw_cyclonedds_cpp`
     - CycloneDDS version 0.10.2
@@ -36,7 +36,7 @@ The Jetson is where the Go2 SDK runs and can be accessed. **For most application
 To access the Jetson over Ethernet using SSH, run the command
 
 ```bash
-ssh -X unitree@192.168.123.18
+    ssh -X unitree@192.168.123.18
 ```
 
 The password for the Jetson is `123`. Note that `-X` is an optional argument to enable X11 forwarding.
@@ -82,14 +82,18 @@ For low level joint information, subscribe to the `/joint_states` topic.
 
 There are other topics which are more niche in their uses.
 
-We do also have a [Livox MID-360](https://www.livoxtech.com/mid-360) LiDAR which is yet to be integrated with the robot.
+!!!success RGBD Camera
+    We have successfully integrated an [Intel RealSense D435i](https://www.intelrealsense.com/depth-camera-d435i/) RGBD camera. See [here](rgbd_camera.md) for more information.
+
+!!!bug External LiDAR
+    We also have a [Livox MID-360](https://www.livoxtech.com/mid-360) LiDAR which is yet to be integrated with the robot. See [here](external_lidar.md) for more information.
 
 ### Pre-Defined Actions
 
 The Go2 has many pre-defined actions (listed on the controller), e.g. sitting or jumping. These are accessible using ROS, simply run
 
 ```bash
-ros2 service call /mode go2_interfaces/srv/Mode "mode: '<MODE>'"
+    ros2 service call /mode go2_interfaces/srv/Mode "mode: '<MODE>'"
 ```
 
 The options for `<MODE>` are:
@@ -127,13 +131,13 @@ Unitree support for ROS2 is poor and so we do not use the default SDK. The SDK w
 The SDK runs as a `systemd` service on the Jetson and should start automatically at boot. To check this run
 
 ```bash
-systemctl status go2-sdk.service
+    systemctl status go2-sdk.service
 ```
 
 If you want to run the SDK manually (e.g. for debugging), make sure to stop the service.
 
 ```bash
-sudo systemctl stop go2-sdk.service
+    sudo systemctl stop go2-sdk.service
 ```
 
 ### Building from Source
@@ -143,9 +147,9 @@ In order to build from source, ensure that the `ros2_ws` directory has not been 
 As the package already exists, we must remove it. It is good practice to clean the workspace too.
 
 ```bash
-cd ~/ros2_ws
-rm -r log/ install/ build/      # Clean the workspace
-rm -r src/go2_robot             # Remove the SDK package
+    cd ~/ros2_ws
+    rm -r log/ install/ build/      # Clean the workspace
+    rm -r src/go2_robot             # Remove the SDK package
 ```
 
 The `src` directory will also have a package called `HesaiLidar_ROS_2.0`. This package is required by the SDK even though we do not have this LiDAR. There are plans to remove this requirement in the future but for now leave the package untouched.
@@ -153,21 +157,21 @@ The `src` directory will also have a package called `HesaiLidar_ROS_2.0`. This p
 We can then gather our sources for the SDK.
 
 ```bash
-cd ~/ros2_ws/src
-git clone https://github.com/tgodfrey0/go2_robot.git        # Clone the SDK
-RUN git clone https://github.com/nlohmann/json.git          # Clone a required library
-mv json/include/nlohmann go2_robot/go2_driver/include/      # Move the library to the ROS package
-rm -rf json                                                 # Remove the library repository
+    cd ~/ros2_ws/src
+    git clone https://github.com/tgodfrey0/go2_robot.git        # Clone the SDK
+    RUN git clone https://github.com/nlohmann/json.git          # Clone a required library
+    mv json/include/nlohmann go2_robot/go2_driver/include/      # Move the library to the ROS package
+    rm -rf json                                                 # Remove the library repository
 ```
 
 Now we can build it.
 
 ```bash
-cd ~/ros2_ws
-rosdep update 
-rosdep install --from-paths src --ignore-src -r -y --rosdistro ${ROS_DISTRO} --include-eol-distros 
-colcon build --symlink-install 
-source install/setup.bash 
+    cd ~/ros2_ws
+    rosdep update 
+    rosdep install --from-paths src --ignore-src -r -y --rosdistro $ROS_DISTRO --include-eol-distros 
+    colcon build --symlink-install 
+    source install/setup.bash 
 ```
 
 If all packages build successfully we can now use the Go2 with ROS2.
@@ -175,7 +179,7 @@ If all packages build successfully we can now use the Go2 with ROS2.
 To start the SDK, run
 
 ```bash
-ros2 launch go2_bringup go2.launch.py
+    ros2 launch go2_bringup go2.launch.py
 ```
 
 Once this is working, remember to uncomment the line to source the ROS workspace in `~/.ros2_env`.

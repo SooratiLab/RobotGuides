@@ -9,7 +9,7 @@ This should be run on the Raspberry Pi inside the robot. See above on how to acc
 The SDK must be started to enable ROS control of the robot. We can launch this as follows
 
 ```bash
-ros2 launch turtlebot3_bringup robot.launch.py
+    ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 This should start the SDK can allow you to interact with the robot. **The rest of your code can (normally) be run from your own PC now.**

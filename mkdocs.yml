@@ -38,6 +38,8 @@ nav:
     - Overview: go2/index.md
     - Getting Started: go2/getting_started.md
     - ROS2 Control: go2/ros_control.md
+    - RGBD Camera: go2/rgbd_camera.md
+    - External Lidar: go2/external_lidar.md
     - Troubleshooting: go2/troubleshooting.md
     - Useful Resources: go2/resources.md
     - 3D Models: go2/3d_models.md

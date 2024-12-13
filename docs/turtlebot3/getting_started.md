@@ -36,7 +36,7 @@ The Raspberry Pi has an onboard wireless chip. The easiest way to connect to a W
 Simply run
 
 ```bash
-sudo nmtui
+    sudo nmtui
 ```
 
 And click on `Activate a connection`.
@@ -50,7 +50,7 @@ There are wireless controller for the TurtleBot3s, however they have not be set 
 To control the robot with your keyboard (simple WASD), on your computer launch the keyboard control package. (Your PC must be connected to the robots over the network for ROS to communicate with it.)
 
 ```bash
-ros2 run turtlebot3_teleop teleop_keyboard
+    ros2 run turtlebot3_teleop teleop_keyboard
 ```
 
 This will allow you to control the linear and angular velocity of the robot.
