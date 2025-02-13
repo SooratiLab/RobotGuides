@@ -35,17 +35,18 @@ nav:
   - Home: index.md
   - Report an Issue: report_an_issue.md
   - Go2:
-    - Overview: go2/index.md
-    - Getting Started: go2/getting_started.md
-    - ROS2 Control: go2/ros_control.md
-    - RGBD Camera: go2/rgbd_camera.md
-    - External Lidar: go2/external_lidar.md
-    - Troubleshooting: go2/troubleshooting.md
-    - Useful Resources: go2/resources.md
-    - 3D Models: go2/3d_models.md
+      - Overview: go2/index.md
+      - Getting Started: go2/getting_started.md
+      - ROS2 Control: go2/ros_control.md
+      - RGBD Camera: go2/rgbd_camera.md
+      - External Lidar: go2/external_lidar.md
+      - Troubleshooting: go2/troubleshooting.md
+      - Useful Resources: go2/resources.md
+      - 3D Models: go2/3d_models.md
   - TurtleBot3:
-    - Overview: turtlebot3/index.md
-    - Getting Started: turtlebot3/getting_started.md
-    - ROS2 Control: turtlebot3/ros_control.md
-    - Troubleshooting: turtlebot3/troubleshooting.md
-    - Useful Resources: turtlebot3/resources.md
+      - Overview: turtlebot3/index.md
+      - Getting Started: turtlebot3/getting_started.md
+      - Setup: turtlebot3/setup.md
+      - ROS2 Control: turtlebot3/ros_control.md
+      - Troubleshooting: turtlebot3/troubleshooting.md
+      - Useful Resources: turtlebot3/resources.md
