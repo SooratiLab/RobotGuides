@@ -1,6 +1,6 @@
 # B32RobotGuides
 
-This is built using [mkdocs](https://www.mkdocs.org).
+This is built using [mkdocs](https://www.mkdocs.org) and uses [Pixi](https://pixi.sh) for package management. To run the docs locally run `pixi run serve`.
 
 This repository contains the documentation for the robots we have in the lab.
 
@@ -12,6 +12,7 @@ These guides were written by Toby Godfrey (t.godfrey \~at\~ soton.ac.uk). If the
 
 ## TODO
 
-- [ ] RealSense D435i Camera
+- [ ] Rename UAV platform
+- [x] RealSense D435i Camera
 - [ ] Livox MID-360
 - [x] Linux disclaimer

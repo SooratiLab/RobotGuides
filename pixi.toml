@@ -1,0 +1,13 @@
+[project]
+authors = ["Toby Godfrey <tmag1g21@soton.ac.uk>"]
+channels = ["conda-forge"]
+name = "RobotGuides"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+serve = "mkdocs serve"
+
+[dependencies]
+mkdocs = ">=1.6.1,<2"
+mkdocs-material = ">=9.6.7,<10"
