@@ -30,6 +30,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list
 
 nav:
   - Home: index.md
@@ -50,3 +51,7 @@ nav:
       - ROS2 Control: turtlebot3/ros_control.md
       - Troubleshooting: turtlebot3/troubleshooting.md
       - Useful Resources: turtlebot3/resources.md
+  - UAVs:
+      - Overview: uav/index.md
+      - Getting Started: uav/getting_started.md
+      - Build Instructions: uav/build_instructions.md
