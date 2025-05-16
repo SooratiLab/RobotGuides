@@ -16,7 +16,7 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 - [Carbon Fibre Tubes](https://www.carbonfibretubes.co.uk/) (UK) — More expensive than CNC Madness, but they are located in Fareham and registered as a supplier with the university so better for quick turnarounds
 
 !!!tip "Altering the frame design"
-    If you need to change the design of the frame, maybe to accommodate different components, you are strongly encouraged to 3D print a prototype before ordering the frame. This will help you identify any potential issues with the design before investing significant time and money into having the frames manufactured.
+    If you need to change the design of the frame, maybe to accommodate different components, you are strongly encouraged to 3D print a prototype before ordering the frame. This will help you identify any potential issues with the design before investing significant time and money into having the frames manufactured. Please contact Toby Godfrey (t.godfrey ~at~ soton.ac.uk) with your updated designs so we can add them to these resources.
 
 ## Expansion Plates
 
