@@ -18,8 +18,6 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 !!!tip "Altering the frame design"
     If you need to change the design of the frame, maybe to accommodate different components, you are strongly encouraged to 3D print a prototype before ordering the frame. This will help you identify any potential issues with the design before investing significant time and money into having the frames manufactured. Please contact Toby Godfrey (t.godfrey ~at~ soton.ac.uk) with your updated designs so we can add them to these resources.
 
-## Expansion Plates
-
 ## Wiring
 
 ## Assembly
@@ -33,5 +31,8 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 4. Place the radio module and the GNSS module into their respective mounts, and place them either side of the rear mounting arm. Pass one M3x14 bolt through each hole, and use an M3 Nylock to secure each bolt and keep the mounts flush against the frame.
 5. Place the optical flow board on the underside of the mount between the front motors. Use M3x12 bolts and M3 Nylocks to secure the sensor to the frame. Ensure the arrow on the board is facing forwards.
 6. Align the battery cage below the frame and use 4 M3 bolts through the mounting holes. The bolt length will depend on whether standoffs or Nylock nuts are used. Attach the relevant 'nut' on the other side of the bolt and ensure the battery cage does not move.
+
+## Expansion Plates
+
 
 ## Calibration
