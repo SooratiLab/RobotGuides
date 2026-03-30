@@ -34,5 +34,4 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 
 ## Expansion Plates
 
-
 ## Calibration

@@ -1,4 +1,4 @@
-[project]
+[workspace]
 authors = ["Toby Godfrey <tmag1g21@soton.ac.uk>"]
 channels = ["conda-forge"]
 name = "RobotGuides"
