@@ -159,7 +159,7 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 
 #### mLRS Radio Over USB
 
-To use the radio over USB to connect to a groundstation it must be reflashed with the SikTelem version of the firmware.
+To use the radio over USB to connect to a groundstation it must be reflashed with the SikTelem version of the firmware. Use the mLRS web flasher (on Chrome or Edge): (https://olliw.eu/mlrsflasher)[https://olliw.eu/mlrsflasher].
 
 ### Tuning
 
