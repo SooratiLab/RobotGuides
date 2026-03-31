@@ -2,16 +2,16 @@
 
 ## Component List
 
-| Part                              | Quantity |                      |
-| --------------------------------- | -------- | -------------------- |
-| MatekSys H743-SLIM v3             |    1     |                      |
-| Flywoo GOKU ESC (4in1 32bit 3-6S) |    1     |                      |
-| T-Motor F1404 KV3800              |    4     |                      |
-| GEMFAN Hurricane 3016-3           |    4     |                      |
-| VIFLY ShortSaver 2                |    1     |                      |
-| MatekSys M10Q GPS                 |    1     |                      |
-| MatekSys mR900-30                 |    1     |                      |
-| MatekSys Optical FLow 3901-L0X    |    1     |                      |
+| Part                              | Quantity | 
+| --------------------------------- | -------- | 
+| MatekSys H743-SLIM v3             |    1     | 
+| Flywoo GOKU ESC (4in1 32bit 3-6S) |    1     | 
+| T-Motor F1404 KV3800              |    4     | 
+| GEMFAN Hurricane 3016-3           |    4     | 
+| VIFLY ShortSaver 2                |    1     | 
+| MatekSys M10Q GPS                 |    1     | 
+| MatekSys mR900-30                 |    1     | 
+| MatekSys Optical FLow 3901-L0X    |    1     | 
 
 ## Design Files
 
@@ -104,82 +104,62 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 7. Check Run after programming and browse to the downloaded firmware file
 8. Click Start Programming
 
-### Calibration
+### Setup
 
-#### Accelerometer
+#### Accelerometer Calibration
 
 - Open `QGroundControl` and navigate to **Vehicle Setup > Sensors**.
 - Select **Accelerometer** and follow the on-screen instructions.
 - Perform a six-point calibration (front, back, left, right, up, down) on a level, non-magnetic surface.
 
-#### Compass
+#### Compass Calibration
 
 - Go to **Vehicle Setup > Sensors > Compass**.
 - Calibrate in an area with minimal magnetic interference.
 - Use Compass Learn if interference issues are encountered.
 
-#### Radio Control
+#### Motor Setup
 
-- Go to **Vehicle Setup > Radio**.
-- Bind your `mLRS MAVLink 900MHz Receiver`, `mR900-30` from MatekSys to the flight controller:
-  - Set `RC6_OPTION` (or the relevant channel) to `1` for mLRS.
-  - Verify all channels are mapped correctly.
+- Set `MOT_PWM_TYPE` to `4` (DShot600) for the Goku 4-in-1 ESC.
+- Use the Motor Test feature in `QGroundControl` to verify each motor spins correctly.
+- The motors must be in the correct order as in the table below. Update the `SERVOx_FUNCTION` parameters (where `x` is the ESC port number) so the motors are labelled correctly.
 
-#### ESC Calibration
+| Motor Number | Position    | Motor Test Slider Label |
+| ------------ | ----------- | ----------------------- |
+| 1            | Front Right | A                       |
+| 2            | Rear Left   | C                       |
+| 3            | Front Left  | D                       |
+| 4            | Rear Right  | B                       |
 
-- Go to **Vehicle Setup > Power**.
-- Set `BATT_MONITOR` to `4` for current monitoring.
-- Set `BATT_VOLT_PIN` and `BATT_CURR_PIN` if using the ESC’s current sensor.
+#### Battery Setup
 
-### Peripheral Configuration
+- Set `BATT_MONITOR` to `4` for analog voltage and current monitoring.
+- Set `BATT_CAPACITY` to the mAh rating of the battery 
+- Set `BATT_LOW_VOLT` to 14.2 (3.55 V/cell)
+- Set `BATT_CRT_VOLT` to 13.2 (3.3 V/cell)
+- Set `BATT_LOW_MAH` to 400 (20% remaining)
+- Set `BATT_CRT_MAH` to 200 (10% remaining)
+- Set `BATT_FS_LOW_ACT` to 4 (SmartRTL or RTL)
+- Set `BATT_FS_CRT_ACT` to 1 (Land)
 
-#### GPS
+#### GPS Setup
 
 - Go to **Vehicle Setup > Sensors > GPS**.
 - Set `GPS_TYPE` to `1` (NMEA) or `5` (u-blox) depending on the GPS protocol.
 - Set `SERIAL1_PROTOCOL` to `5` (u-blox) or `1` (NMEA) for the GPS UART.
 - Set `SERIAL1_BAUD` to `115` (115200 baud).
 
-#### mLRS Radio
+#### Radio Setup
 
-- Go to **Vehicle Setup > Telemetry**.
-- Set `SERIAL6_PROTOCOL` to `1` (MAVLink1) or `2` (MAVLink2) for the mLRS UART.
-- Set `SERIAL6_BAUD` to `57` (57600 baud).
-- Configure the `mLRS MAVLink 900MHz Receiver`, `mR900-30` from MatekSys settings (baud rate, power, channels) using the mLRS configurator.
+- TODO
 
 #### Optical Flow Sensor
 
-- Go to **Vehicle Setup > Sensors > Optical Flow**.
-- Set `FLOW_ENABLE` to `1`.
-- Set `SR1_EXTRA3` and `SR1_EXTRA4` to `10` for 10 Hz flow data.
-- Verify the sensor’s UART (for example, set `SERIAL4_PROTOCOL` to `11` for optical flow).
+- TODO
 
-### Motor and ESC Setup
+#### mLRS Radio Over USB
 
-#### ESC Protocol
-
-- Set `MOT_PWM_TYPE` to `4` (DShot600) for the Goku 4-in-1 ESC.
-- Set `MOT_DSHOT_MIN` to `48` and `MOT_DSHOT_MAX` to `2000`.
-
-#### Motor Order
-
-- Set `MOT_ORDER` to match your physical motor layout (for example, `1234` for a quadcopter in an X configuration).
-- Use the Motor Test feature in `QGroundControl` to verify each motor spins correctly.
-
-### ArduPilot Parameters
-
-| Parameter            | Recommended Value | Notes                                                  |
-|----------------------|-------------------|--------------------------------------------------------|
-| `FRAME_CLASS`        | `1` (Quad)        | Set based on your airframe.                            |
-| `MOT_SPIN_ARMED`     | `0.1`             | Minimum motor spin when armed.                         |
-| `MOT_THST_EXPO`      | `0.6`             | Throttle sensitivity (adjust for motors).              |
-| `BATT_MONITOR`       | `4`               | Enable battery monitoring.                             |
-| `BATT_LOW_MAH`       | `2000`            | Adjust based on your battery capacity.                 |
-| `FS_BATT_ENABLE`     | `1`               | Enable battery failsafe.                               |
-| `FS_GPS_ENABLE`      | `1`               | Enable GPS failsafe (for example, RTL if GPS is lost). |
-| `SERIAL1_PROTOCOL`   | `5` (u-blox)      | GPS UART protocol.                                     |
-| `SERIAL6_PROTOCOL`   | `1` (MAVLink1)    | mLRS radio protocol.                                   |
-| `SERIAL4_PROTOCOL`   | `11` (Optical Flow) | Optical flow sensor protocol.                       |
+To use the radio over USB to connect to a groundstation it must be reflashed with the SikTelem version of the firmware.
 
 ### Tuning
 
