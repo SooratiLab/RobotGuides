@@ -131,6 +131,91 @@ The base frame of the UAV is machined from a Carbon Fibre sheet. Unless you want
 | 3            | Front Left  | D                       |
 | 4            | Rear Right  | B                       |
 
+#### ArduPilot Mappings
+
+!!!info
+    The mappings below are sourced from the [MatekSys H743-SLIM-V4](https://www.mateksys.com/?portfolio=h743-slim-v4#tab-id-6). The pin layout is identical to the v3, so these parameters apply to both versions.
+
+##### PWM Outputs
+
+PWM1–PWM13 are DShot and PWM capable. Mixing DShot and normal PWM within the same timer group is not allowed — if any output in a group is set to DShot, all outputs in that group must use DShot.
+
+| Servo | Pin  | GPIO | Timer     | Group |
+| ----- | ---- | ---- | --------- | ----- |
+| S1    | PB0  | 50   | TIM8_CH2N | 1     |
+| S2    | PB1  | 51   | TIM8_CH3N | 1     |
+| S3    | PA0  | 52   | TIM5_CH1  | 2     |
+| S4    | PA1  | 53   | TIM5_CH2  | 2     |
+| S5    | PA2  | 54   | TIM5_CH3  | 2     |
+| S6    | PA3  | 55   | TIM5_CH4  | 2     |
+| S7    | PD12 | 56   | TIM4_CH1  | 3     |
+| S8    | PD13 | 57   | TIM4_CH2  | 3     |
+| S9    | PD14 | 58   | TIM4_CH3  | 3     |
+| S10   | PD15 | 59   | TIM4_CH4  | 3     |
+| S11   | PE5  | 60   | TIM15_CH1 | 4     |
+| S12   | PE6  | 61   | TIM15_CH2 | 4     |
+| LED   | PA8  | 62   | TIM1_CH1  | 5     |
+
+##### ADC
+
+| Pad     | Pin  | Range   | ArduPilot Parameter   | Value |
+| ------- | ---- | ------- | --------------------- | ----- |
+| VBat    | PC0  | 0–36V   | `BATT_VOLT_PIN`       | 10    |
+|         |      |         | `BATT_VOLT_MULT`      | 11.0  |
+| Current | PC1  | 0–3.3V  | `BATT_CURR_PIN`       | 11    |
+|         |      |         | `BATT_AMP_PERVLT`     | 40    |
+| Vbat2   | PA4  | 0–69V   | `BATT2_VOLT_PIN`      | 18    |
+|         |      |         | `BATT2_VOLT_MULT`     | 21.0  |
+| Cur2    | PA7  | 0–3.3V  | `BATT2_CURR_PIN`      | 7     |
+| RSSI    | PC5  | 0–3.3V  | `RSSI_ANA_PIN`        | 8     |
+|         |      |         | `RSSI_TYPE`           | 1     |
+| AirS    | PC4  | 0–6.6V  | `ARSPD_PIN`           | 4     |
+|         |      |         | `ARSPD_TYPE`          | 2     |
+
+##### I2C / CAN / UART
+
+| Bus          | Pins       | Default Use             | ArduPilot Setting                  |
+| ------------ | ---------- | ----------------------- | ---------------------------------- |
+| I2C1         | PB6 / PB7  | Digital airspeed / compass | `ARSPD_BUS=1`, `COMPASS_AUTODEC=1` |
+| I2C2         | PB10 / PB11| On-board baro (DPS368)  | —                                  |
+| CAN1         | PD0 / PD1  | CAN GPS                 | `CAN_D1_PROTOCOL=1`, `GPS_TYPE=9`  |
+| UART7 (RX7)  | PE7–PE10   | Telem1                  | `SERIAL1`                          |
+| USART1       | PA9 / PA10 | Telem2                  | `SERIAL2`                          |
+| USART2       | PD5 / PD6  | GPS1                    | `SERIAL3`                          |
+| USART3       | PD8 / PD9  | GPS2                    | `SERIAL4`                          |
+| UART8        | PE1 / PE0  | User                    | `SERIAL5`                          |
+| UART4        | PB9 / PB8  | User                    | `SERIAL6`                          |
+| RX6          | PC6 / PC7  | RC input                | `SERIAL7`                          |
+
+##### RC Input
+
+The RX6 pin supports all ArduPilot receiver protocols except CRSF, which requires a true UART. To enable CRSF, FPort, or SRXL2 with telemetry, set `BRD_ALT_CONFIG=1` so RX6 becomes SERIAL7's RX input, then set `SERIAL7_PROTOCOL=23`.
+
+- **SBUS/DSM/SRXL** — Connect to RX6; for SBUS also set `SERIAL7_OPTIONS=3`.
+- **FPort** — Connect to TX6; set `SERIAL7_OPTIONS=7` (or `135` if telemetry fails).
+- **CRSF** — Connect to both TX6 and RX6; set `SERIAL7_OPTIONS=0`.
+- **SRXL2** — Connect to TX6; set `SERIAL7_OPTIONS=4`.
+
+##### Relay (PINIO) GPIOs
+
+| GPIO | Pin  | Function              |
+| ---- | ---- | --------------------- |
+| 81   | PD10 | Vsw power switch pad  |
+| 82   | PD11 | Camera input switch   |
+
+Example configuration:
+
+```
+RELAY1_FUNCTION  1
+RELAY1_PIN       81
+RC7_OPTION       28        // CH7 toggles Vsw
+RELAY2_FUNCTION  1
+RELAY2_PIN       82
+RC8_OPTION       34        // CH8 toggles camera
+```
+
+Relay triggers when the auxiliary channel PWM exceeds 1800 and deactivates below 1200.
+
 #### Battery Setup
 
 - Set `BATT_MONITOR` to `4` for analog voltage and current monitoring.
